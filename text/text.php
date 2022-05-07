@@ -1,4 +1,6 @@
 <?php
+include_once '../index.php';
+include_once '../library.php';
 
 Class Text
 {
@@ -15,7 +17,7 @@ Class Text
       $_SESSION['text'] = serialize($this->Model);
     }
 
-    // session_start();
+    session_start();
   // @todo これいる？
 
   }
@@ -37,6 +39,21 @@ Class Text
 
   // 確認へ
   function check(){
+    $this->Model->set_value($_REQUEST);
+
+    // エラーメッセージ
+    $error_message = $this->Model->check_value();
+    // var_dump($error_message);
+    // exit();
+
+    if ($error_message) {
+      require_once '../library.php';
+      include('./input.php');
+    } else {
+      $this->main_page = 'check';
+      $this->show();
+    }
+
 
   }
 
@@ -44,7 +61,16 @@ Class Text
 
   // // 表示もかな？
   function show() {
+
+    switch ($this->main_page) {
+      case 'input':
+        $error_message = '';
+        break;
+    }
+
     include 'main.php';
+
+
   }
 
 }
