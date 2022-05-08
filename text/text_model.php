@@ -43,6 +43,32 @@ Class TextModel
 
   }
 
+  // function register()
+  // {
+  //   $result = $this->insert();
+  //   return $result;
+  // }
+
+  function insert()
+  {
+    require_once '../library.php';
+    // 初期化は、値がない場合がある場合に初期値を設定する。
+    $column = "'".h($this->output)."'";
+    
+    $sql = "
+        INSERT INTO
+          record
+          (output)
+        VALUES
+          ($column)
+    ";
+    // exit($sql);
+    $this->db = new Sql();
+    $results = $this->db->query($sql);
+
+    return $results;
+
+  }
 
 }
 

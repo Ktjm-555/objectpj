@@ -14,5 +14,11 @@ Class Sql
 				$this->db = $db;
 			}
 		}
+
+		function query($sql) 
+		{
+			$result = mysqli_query($this->db, $sql);
+			return $result;
+		} 
 }
 ?>

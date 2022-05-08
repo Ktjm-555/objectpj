@@ -10,11 +10,11 @@ Class Text
     include_once './text_model.php';
 
     // 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
-    if (isset($_SESSION['text'])) {
-      $this->Model = unserialize($_SESSION['text']);
+    if (isset($_SESSION['output'])) {
+      $this->Model = unserialize($_SESSION['output']);
     } else {
       $this->Model = new TextModel();
-      $_SESSION['text'] = serialize($this->Model);
+      $_SESSION['output'] = serialize($this->Model);
     }
 
     session_start();
@@ -39,6 +39,7 @@ Class Text
 
   // 確認へ
   function check(){
+    // 内容を受け取る
     $this->Model->set_value($_REQUEST);
 
     // エラーメッセージ
@@ -50,16 +51,35 @@ Class Text
       require_once '../library.php';
       include('./input.php');
     } else {
+      $_SESSION['output'] = $this->Model;
       $this->main_page = 'check';
+      $this->show();
+    }
+  }
+
+  // 登録、投稿する
+  function regist()
+  {
+  
+    $this->Model = $_SESSION['output'];
+    $res = $this->Model->insert();
+
+    if (!$res) {
+      $error_message = 'できていませんよ！何かがおかしいよ！';
+      require_once '../library.php';
+      include('./input.php');
+    } else {
+
+      //セッションの削除
+      unset($_SESSION['output']);
+      $this->main_page = 'thank';
       $this->show();
     }
 
 
   }
 
-  // // 完了する
-
-  // // 表示もかな？
+  // 表示もかな？
   function show() {
 
     switch ($this->main_page) {
