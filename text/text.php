@@ -17,8 +17,11 @@ Class Text
       $_SESSION['output'] = serialize($this->Model);
     }
 
-    session_start();
   // @todo これいる？
+    session_start();
+
+    
+
 
   }
   // // 投稿する・表示もする
@@ -60,7 +63,6 @@ Class Text
   // 登録、投稿する
   function regist()
   {
-  
     $this->Model = $_SESSION['output'];
     $res = $this->Model->insert();
 
@@ -79,14 +81,20 @@ Class Text
 
   }
 
-  // 表示もかな？
+  // 表示
   function show() {
 
     switch ($this->main_page) {
       case 'input':
         $error_message = '';
+        $this->Model->set_texts();
+        $_SESSION['display'] = $this->Model->texts;
         break;
     }
+
+    
+    // var_dump($_SESSION['display']);
+    // exit();
 
     include 'main.php';
 
