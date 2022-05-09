@@ -17,14 +17,9 @@ Class Text
       $_SESSION['output'] = serialize($this->Model);
     }
 
-  // @todo これいる？
     session_start();
 
-    
-
-
   }
-  // // 投稿する・表示もする
   function start() 
   {
     $this->input();

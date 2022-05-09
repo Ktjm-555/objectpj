@@ -20,9 +20,11 @@ Class TextModel
   {
     $sql ="
     SELECT 
-      output,created
+      *
     FROM 
       record
+    ORDER BY 
+      id DESC 
     ";
     // 実行したものをresultsに入れている
     $results = $this->db->query($sql);
