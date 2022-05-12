@@ -1,22 +1,19 @@
 <?php
 include_once '../sql.php';
 
-Class TextModel
+Class RecordModel
 {
-  // var $input = [
-  //   '1'=>array(
-  //     'output',
-  //   )
-  //   ];
-  var $output;
-  var $text;
-  
+  //定義
+  var $record;
+
+  //コンストラクタ
   function __construct() 
   {
     $this->db = new Sql();
   }
 
-  function set_texts()
+  //投稿一覧表示
+  function set_records()
   {
     $sql ="
     SELECT 
@@ -26,93 +23,64 @@ Class TextModel
     ORDER BY 
       id DESC 
     ";
-    // 実行したものをresultsに入れている
+    // Point 実行したものをresultsに入れている
     $results = $this->db->query($sql);
-    // var_dump($sql);
-    // テーブルのレコードを1行取得し、$rowに入れることを繰り返す＊連想配列となる
-      while ($row = mysqli_fetch_assoc($results)) {
-        // 配列を入れる器を作る　
-        $text = new stdClass();  
-        // name（Ex.output） value(Ex.input で入力した値)に当てはめる
-        // name（Ex.created）  value(Ex.inputで入力したときの時間)に当てはめる
-        foreach($row as $name => $value) {
-          $text->$name = $value;
-        }
-        // $textは　outputとcreatedからできた配列になる
-        $texts[] = serialize($text);
+    //　Point テーブルのレコードを1行取得し、$rowに入れることを繰り返す＊連想配列となる
+    while ($row = mysqli_fetch_assoc($results)) {
+      // Point 配列を入れる器を作る　
+      $record = new stdClass();  
+      //　Point name（Ex.output） value(Ex.input で入力した値)に当てはめる
+      //　Point name（Ex.created）  value(Ex.inputで入力したときの時間)に当てはめる
+      foreach($row as $name => $value) {
+        $record->$name = $value;
       }
-        $this->texts = $texts;
-        // var_dump($texts);
-        // exit();
-
-
-
-
-    // // 一列ずつ抜き出している
-    // while ($row = mysqli_fetch_assoc($results)) {
-    //   // からのクラス　stdClass　new器ができる
-    //   $text = new stdClass();    
-    //   // @riho 一個のみの場合は？ 
-    //   foreach($row as $name => $value) {
-    //     $text->$name = $value;
-    //   }
-    //   $texts[] = serialize($text);
-    // }
-    //   // ＄this->model
-    // $this->texts = $text;
+      //　Point　$recordは　outputとcreatedからできた配列になる
+      $records[] = serialize($record);
+    }
+    $this->records = $records;
   }
  
-
-  // まず初期化
+  //まず初期化　　＠todo 今後valueを残す仕様の際に利用する可能あり。
   function init()
   {
-    // かければいらない
-    // foreach ($input as $name) {
-      $this->output = NULL;
-    // }  
+    $this->record = NULL;
   }
 
+  //値を受け取る
   function set_value($request)
   {
-    // $error_message = '';
     if (isset($_REQUEST['output'])){
       $this->output =  $request['output'];
     } 
   }
 
+  //入力していない場合の確認
   function check_value()
   {
     $error ='';
     if (!strlen($_REQUEST['output'])){
       $error = '何か入力してください';
     }
-    // 返す
     return $error;
-
   }
 
+  //insertのSQL 投稿を登録する
   function insert()
   {
     require_once '../library.php';
-    // 初期化は、値がない場合がある場合に初期値を設定する。
+    // Point 初期化は、値がない場合がある場合に初期値を設定する。
     $column = "'".h($this->output)."'";
     
     $sql = "
-        INSERT INTO
-          record
-          (output)
+      INSERT INTO
+        ecord
+        (output)
         VALUES
-          ($column)
+        ($column)
     ";
-    // exit($sql);
     $this->db = new Sql();
     $results = $this->db->query($sql);
-
     return $results;
-
   }
-
-
 }
-
 ?>

@@ -2,31 +2,28 @@
 include_once '../index.php';
 include_once '../library.php';
 
-Class Text
+Class Record
 {
-
+  //コンストラクタ　　
   function __construct() 
   {
-    include_once './text_model.php';
-
-    // 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
-    if (isset($_SESSION['output'])) {
-      $this->Model = unserialize($_SESSION['output']);
+    include_once './record_model.php';
+    // Point 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
+    if (isset($_SESSION['record'])) {
+      $this->Model = unserialize($_SESSION['record']);
     } else {
-      $this->Model = new TextModel();
-      $_SESSION['output'] = serialize($this->Model);
+      $this->Model = new RecordModel();
+      $_SESSION['record'] = serialize($this->Model);
     }
-
     session_start();
-
   }
+
   function start() 
   {
     $this->input();
-
   }
 
-  // 入力され初期化
+  //初期化
   function input()
   {
     $this->Model->init();
@@ -35,31 +32,29 @@ Class Text
 
   }
 
-  // 確認へ
+  //投稿確認
   function check(){
-    // 内容を受け取る
+    //値を受け取る
     $this->Model->set_value($_REQUEST);
-
-    // エラーメッセージ
+;
+    //入力していない場合の確認　エラーを表示する
     $error_message = $this->Model->check_value();
-    // var_dump($error_message);
-    // exit();
 
     if ($error_message) {
       require_once '../library.php';
       $this->main_page = 'input';
       include('./main.php');
     } else {
-      $_SESSION['output'] = $this->Model;
+      $_SESSION['record'] = $this->Model->output;
       $this->main_page = 'check';
       $this->show();
     }
   }
 
-  // 登録、投稿する
+  //投稿の登録、投稿する
   function regist()
   {
-    $this->Model = $_SESSION['output'];
+    $this->Model->output = $_SESSION['record'];
     $res = $this->Model->insert();
 
     if (!$res) {
@@ -70,35 +65,22 @@ Class Text
     } else {
 
       //セッションの削除
-      unset($_SESSION['output']);
+      unset($_SESSION['record']);
       $this->main_page = 'thank';
       $this->show();
     }
-
-
   }
 
-  // 表示
+  //画面遷移
   function show() {
-
     switch ($this->main_page) {
       case 'input':
         $error_message = '';
-        $this->Model->set_texts();
-        $_SESSION['display'] = $this->Model->texts;
+        $this->Model->set_records();
+        $_SESSION['record'] = $this->Model->records;
         break;
     }
-     
-    // var_dump($_SESSION['display']);
-    // exit();
-
     include 'main.php';
-
-
   }
-
 }
-
-
-
 ?>

@@ -1,5 +1,5 @@
 <div class="button">
-    <form action="../text/text.php" method="post" >
+    <form action="../record/record.php" method="post" >
       <input type="hidden" name="method" value="start">
         <button type="submit"> 
         TOPページに戻る
@@ -15,9 +15,9 @@
   <h1>コメント</h1>
 </div>
 <div>
-<form action="./text_detail.php" method="post">
+<form action="./record_detail.php" method="post">
     <input type="hidden" name="method" value="check">
-    <input type="hidden" name="text_d_id" value="<?= $this->Model->text_d_id ?>">
+    <input type="hidden" name="record_d_id" value="<?= $this->Model->record_d_id ?>">
     <div>
       <input type="text" name="nickname" size="35" maxlength="255" value="">
     <div>

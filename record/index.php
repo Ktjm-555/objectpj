@@ -1,3 +1,3 @@
 <?php
-include_once './text.php';
+include_once './record.php';
 ?>
