@@ -11,7 +11,7 @@
 			}
 		?>
     <button type="submit">確認</button>
-		</form>
+	</form>
 	<?php if (isset($this->Model->texts)){ ?>
 	<h1>投稿一覧</h1>
 		<?php foreach ($this->Model->texts as $text) { ?>

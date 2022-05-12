@@ -61,7 +61,8 @@ Class TextModel
     //   // ＄this->model
     // $this->texts = $text;
   }
-  
+ 
+
   // まず初期化
   function init()
   {

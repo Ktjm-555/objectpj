@@ -47,7 +47,8 @@ Class Text
 
     if ($error_message) {
       require_once '../library.php';
-      include('./input.php');
+      $this->main_page = 'input';
+      include('./main.php');
     } else {
       $_SESSION['output'] = $this->Model;
       $this->main_page = 'check';
@@ -64,7 +65,8 @@ Class Text
     if (!$res) {
       $error_message = 'できていませんよ！何かがおかしいよ！';
       require_once '../library.php';
-      include('./input.php');
+      $this->main_page = 'input';
+      include('./main.php');
     } else {
 
       //セッションの削除
@@ -86,8 +88,7 @@ Class Text
         $_SESSION['display'] = $this->Model->texts;
         break;
     }
-
-    
+     
     // var_dump($_SESSION['display']);
     // exit();
 
