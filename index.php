@@ -10,7 +10,7 @@
   if (array_key_exists(2, $paras) && !empty($paras[2])) { 
     $page = $paras[2];
   } else {
-    $page = 'text';
+    $page = 'record';
   }
 
 // そのページを読み込む
