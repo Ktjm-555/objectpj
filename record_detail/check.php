@@ -1,16 +1,32 @@
 <body>
-  <form action="./record_detail.php" method="post"> 
-    <input type="hidden" name="method" value="regist">  
-    <input type="hidden" name="record_d_id" value="<?= $this->Model->id ?>">      
-		<div>
-    ニックネーム
-    <?php echo $this->Model->nickname; 	?>
+  <div class="wrapper_box1">
+    <div class="display">
+      <form action="./record_detail.php" method="post"> 
+        <input type="hidden" name="method" value="regist">  
+        <input type="hidden" name="record_d_id" value="<?= $this->Model->record_d_id ?>">
+        <div class="content">       
+          ニックネーム:
+          <?php echo $this->Model->nickname; 	?>
+        </div>
+        <div class="content">       
+          コメント:
+          <?php echo $this->Model->come; ?>
+        </div>
     </div>
-    <div>
-      コメント
-			<?php echo $this->Model->come; ?>
+    <div class="button_n">
+        <button type="submit">投稿</button>
+      </form> 
     </div>
-	
-    <button type="submit">投稿</button>
-  </form>
+  </div>
+  <div class="wrapper_box2">
+    <div class="button_t">
+        <form action="./record_detail.php" method="post" >
+          <input type="hidden" name="method" value="start">
+          <input type="hidden" name="record_d_id" value="<?= $this->Model->record_d_id ?>">
+            <button type="submit"> 
+              TOPページに戻る
+            </button>
+        </form>
+    </div>
+    </form>
 </body>

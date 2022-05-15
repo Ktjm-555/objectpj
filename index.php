@@ -25,10 +25,9 @@
   if (array_key_exists('method', $_REQUEST)) {
     $method = $_REQUEST['method'];
   }
-  // @todo jobをmethodに変えた
 
-// strlen 文字列が入ってれば、、、
-// moduleへ飛んでね(classに飛んでね)
+// Point strlen 文字列が入ってれば、、、
+// classに飛んでね
   if (strlen($method)) {
     $class->{$method}();
   } else {

@@ -73,7 +73,7 @@ Class RecordModel
     
     $sql = "
       INSERT INTO
-        ecord
+        record
         (output)
         VALUES
         ($column)

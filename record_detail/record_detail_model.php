@@ -78,6 +78,7 @@ class RecordDetailModel
     ";
     $this->db = new Sql();
     $res = $this->db->query($sql);
+    
     return $res;
   }
 
