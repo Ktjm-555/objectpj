@@ -1,6 +1,7 @@
+aaa
 <?php
-include_once '../index.php';
-include_once '../library.php';
+include_once 'objectpj.herokuapp.com/index.php';
+include_once 'objectpj.herokuapp.com/library.php';
 
 Class Record
 {
