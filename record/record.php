@@ -1,13 +1,13 @@
 <?php
-include_once '../index.php';
-include_once '../library.php';
+include_once 'objectpj/index.php';
+include_once 'objectpj/library.php';
 
 Class Record
 {
   //コンストラクタ　　
   function __construct() 
   {
-    include_once './record_model.php';
+    include_once 'record/record_model.php';
     // Point 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
     if (isset($_SESSION['record'])) {
       $this->Model = unserialize($_SESSION['record']);
