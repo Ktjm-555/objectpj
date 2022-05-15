@@ -1,3 +1,3 @@
 <?php
-include_once './record.php';
+include './record.php';
 ?>
