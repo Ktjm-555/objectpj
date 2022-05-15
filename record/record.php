@@ -1,6 +1,6 @@
 <?php
-include_once 'objectpj/index.php';
-include_once 'objectpj/library.php';
+include_once 'objectpj.herokuapp.com/index.php';
+include_once 'objectpj.herokuapp.com/library.php';
 
 Class Record
 {

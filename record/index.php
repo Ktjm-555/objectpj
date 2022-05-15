@@ -1,3 +1,3 @@
 <?php
-include_once 'record/record.php';
+include_once 'objectpj.herokuapp.com/record/record.php';
 ?>
