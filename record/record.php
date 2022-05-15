@@ -1,4 +1,3 @@
-aaa
 <?php
 include_once 'objectpj.herokuapp.com/index.php';
 include_once 'objectpj.herokuapp.com/library.php';
