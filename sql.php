@@ -6,7 +6,7 @@ Class Sql
 	// 一番最初に読む　コンストラクタ
 	function __construct() 
 	{
-		$db = new PDO('mysql:dbname=heroku_ccea7749e346fc5;host=us-cdbr-east-05.cleardb.net;charset=utf8','b9a24da0030579','84dd6a30');
+		$db = new PDO('mysql:dbname=heroku_963ac50667f4cd7;host=us-cdbr-east-05.cleardb.net;charset=utf8','b40e7da217ecbc','43749863');
 		if (!$db) {
 			die('接続失敗です。');
 		} else {
