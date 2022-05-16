@@ -27,7 +27,7 @@ Class Sql
 		$result = mysqli_query($this->db, $sql);
 		return $result;
 	} 
-
+// array_diff_assoc
 	//一つのテーブルを出す
 	function mysqli_query_one($sql)
   {
