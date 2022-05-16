@@ -3,8 +3,8 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 
-include_once 'objectpj.herokuapp.com/index.php';
-include_once 'objectpj.herokuapp.com/library.php';
+include_once '../index.php';
+include_once '../library.php';
 
 Class Record
 {

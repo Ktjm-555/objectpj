@@ -1,5 +1,5 @@
 <?php
-include_once 'objectpj.herokuapp.com/sql.php';
+include_once '../sql.php';
 
 Class RecordModel
 {
