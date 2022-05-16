@@ -11,8 +11,8 @@ ini_set('error_reporting', E_ALL);
   $paras = explode('/', $uri);
 
   // パラメーターがあるなしによって、uriの.phpの前を指定する
-  if (array_key_exists(2, $paras) && !empty($paras[2])) { 
-    $page = $paras[2];
+  if (array_key_exists(1, $paras) && !empty($paras[1])) { 
+    $page = $paras[1];
   } else {
     $page = 'record';
   }
