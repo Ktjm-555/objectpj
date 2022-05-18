@@ -59,7 +59,7 @@ ini_set('error_reporting', E_ALL);
           </div>
           <div class="button_d">
 					<form action="./record_detail.php" method="post">
-						<input type="hidden" name="method" value="delete">
+            <input type="hidden" name="record_id" value="<?= $this->Model->record_id ?>">
 						<input type="hidden" name="id" value="<?php echo $c->id; ?>">
 						<button type="submit"> 
 							削除する
