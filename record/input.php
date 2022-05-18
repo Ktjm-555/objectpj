@@ -15,7 +15,7 @@
 		</div>
 		
 		<div class="input">
-			<form action="/app/record/record.php" method="post">
+			<form action="/record/record.php" method="post">
 					<input type="hidden" name="method" value="check">        
 					<textarea name="output" cols="50" rows="10" placeholder="投稿はここよん"></textarea>
 		</div>
