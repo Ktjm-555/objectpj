@@ -65,6 +65,8 @@ class Record_detail
 
     if (!$res) {
       $error_message = 'できていませんよ！何かがおかしいよ！';
+      var_dump($error_message);
+      exit();
       require_once '../library.php';
       $this->main_page = 'main_page';
       include('./main.php');
