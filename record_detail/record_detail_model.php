@@ -31,7 +31,7 @@ class RecordDetailModel
     ";
     // Point レコードを一個ずつ出すだが、ここでは、idでが一致するもの1点のみしかない。
     $results = $this->db->mysqli_query_one($sql);
-    foreach($results as $name => $value) {
+    foreach ($results as $name => $value) {
       $this->$name = $value;
     }
   }
@@ -81,8 +81,9 @@ class RecordDetailModel
     return $res;
   }
 
-  // コメント一覧の表示
-  function set_comments($record_id){
+  //コメント一覧の表示
+  function set_comments($record_id) 
+  {
     $sql ="
     SELECT 
       *
@@ -100,7 +101,6 @@ class RecordDetailModel
     while ($row = mysqli_fetch_assoc($results)) {
       // 配列を入れる器を作る　
       $comment = new stdClass();  
-
       // Point　name（Ex.come） value(Ex.input で入力した値)に当てはめる
       // Point　name（Ex.nickname）  value(Ex.inputで入力したときの時間)に当てはめる
       foreach($row as $name => $value) {
