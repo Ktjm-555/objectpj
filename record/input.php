@@ -33,17 +33,17 @@
 			<?php $r = unserialize($record); ?>
 			<div class="clip-box">
 				<div class="content">
-					<a href="/app/record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->created; ?></a>
+					<a href="./record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->created; ?></a>
 				</div>
 				<div class="content">
-					<a href="/app/record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
+					<a href="./record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
 				</div>
 			</div>
 			<?php } ?> 
 		<?php } ?>
 		<?php if (isset($error_message) && !isset($this->Model->records)){ ?>
 			<div class="button_t">
-				<form action="/app/record/record.php" method="post" >
+				<form action="./record.php" method="post" >
 					<input type="hidden" name="method" value="start">
 						<button type="submit"> 
 						TOPページに戻る
