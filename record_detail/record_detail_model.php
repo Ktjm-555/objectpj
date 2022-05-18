@@ -78,7 +78,8 @@ class RecordDetailModel
     ";
     $this->db = new Sql();
     $res = $this->db->query($sql);
-    
+    var_dump($sql);
+    exit();
     return $res;
   }
 
@@ -111,8 +112,7 @@ class RecordDetailModel
     }
     if (isset($comments)) {
       $this->comments = $comments;
-      var_dump($comments);
-      exit();
+  
     } else {
       $this->comments = [];
     }
