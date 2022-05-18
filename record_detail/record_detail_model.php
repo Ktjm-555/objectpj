@@ -117,14 +117,14 @@ class RecordDetailModel
   }
 
   //削除のsqlを実行
-  function delete_do($id)
+  function delete_do($comment_id)
   {    
     $sql = "
     DELETE
     FROM
       comment
     WHERE
-      id = ".$id."
+      id = ".$comment_id."
     ";
     $res = $this->db->query($sql);
     return $res;
