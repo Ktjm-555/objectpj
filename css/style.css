@@ -152,8 +152,7 @@ button:focus {
 }
 
 .button_d {
-  margin-left: auto;
-  margin-right: 20px;
+  margin: 10px, 20px, auto, auto;
 }
 .message {
   text-align: center;
