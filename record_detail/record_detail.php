@@ -60,7 +60,9 @@ class Record_detail
   //コメントの登録、投稿する
   function regist()
   {
-    $this->Model = $_SESSION['record_detail'];
+    $this->Model = unserialize($_SESSION['record_detail']);
+    var_dump($this->Model );
+    exit();
     $res = $this->Model->insert();
 
     if (!$res) {
