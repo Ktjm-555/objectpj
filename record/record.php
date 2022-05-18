@@ -11,7 +11,7 @@ Class Record
   //コンストラクタ　　
   function __construct() 
   {
-    include_once '/app/record_model.php';
+    include_once '/app/record/record_model.php';
     // Point 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
     if (isset($_SESSION['record'])) {
       $this->Model = unserialize($_SESSION['record']);

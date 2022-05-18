@@ -1,5 +1,5 @@
 <?php
-include_once '../sql.php';
+include_once '/app/sql.php';
 
 Class RecordModel
 {
@@ -67,7 +67,7 @@ Class RecordModel
   //insertのSQL 投稿を登録する
   function insert()
   {
-    require_once '../library.php';
+    require_once '/app/library.php';
     // Point 初期化は、値がない場合がある場合に初期値を設定する。
     $column = "'".h($this->output)."'";
     
