@@ -1,6 +1,5 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('error_reporting', E_ALL);
+include_once '/app/record/record.php';
 ?>
 <body>
 	<div class="wrapper_box1">
