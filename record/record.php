@@ -78,7 +78,6 @@ Class Record
   function delete(){
     $this->res = $this->Model->delete_do($_REQUEST['id']);
     if ($this->res){
-      $_REQUEST['id'] = $this->Model->id;
       $this->input();
     } else {
       $this->input();

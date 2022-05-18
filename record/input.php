@@ -31,13 +31,15 @@ include_once '/app/record/record.php';
 			<?php foreach ($this->Model->records as $record) { ?>
 			<?php $r = unserialize($record); ?>
 			<div class="clip-box">
-				<div class="content">
-					<a href="../record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->created; ?></a>
+				<div class="contents">
+					<div class="content">
+						<a href="../record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->created; ?></a>
+					</div>
+					<div class="content">
+						<a href="../record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
+					</div>
 				</div>
-				<div class="content">
-					<a href="../record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
-				</div>
-				<div class="button">
+				<div class="button_d">
 					<form action="/record/record.php" method="post">
 						<input type="hidden" name="method" value="delete">
 						<input type="hidden" name="id" value="<?php echo $r->id; ?>">

@@ -151,6 +151,10 @@ button:focus {
   margin-bottom: 20px;
 }
 
+.button_d {
+  margin-left: auto;
+  margin-right: 20px;
+}
 .message {
   text-align: center;
   font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -184,6 +188,7 @@ button:focus {
   color: #555555; /* 文章色 */
   border: 1px solid #ccc; /* 枠線 */
   box-shadow: 1px 1px 1px #acacac; /* 影の色 */
+  display: flex;
 }
 
 .clip-box-a {
