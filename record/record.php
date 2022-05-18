@@ -82,7 +82,6 @@ Class Record
     } else {
       $this->input();
     }
-   
   }
 
   //画面遷移

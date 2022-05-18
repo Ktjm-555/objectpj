@@ -77,6 +77,17 @@ class Record_detail
     }
   }
 
+  //削除
+  function delete()
+  {
+    $this->res = $this->Model->delete_do($_REQUEST['id']);
+    if ($this->res){
+      $this->main();
+    } else {
+      $this->main();
+    }
+  }
+
   //画面遷移
   function show()
   {

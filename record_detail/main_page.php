@@ -48,13 +48,24 @@ ini_set('error_reporting', E_ALL);
       <?php foreach ($this->Model->comments as $comment) { ?>
         <?php $c = unserialize($comment); ?>
         <div class="clip-box">
-          <div class="content">
-            <?php echo $c->created; ?>
-            <?php echo $c->nickname; ?>
+          <div class="contents">
+            <div class="content">
+              <a><?php echo $c->created; ?></a><br>
+              <a><?php echo $c->nickname; ?></a>
+            </div>
+            <div class="content">
+              <?php echo $c->come; ?>
+            </div>
           </div>
-          <div class="content">
-            <?php echo $c->come; ?>
-          </div>
+          <div class="button_d">
+					<form action="./record_detail.php" method="post">
+						<input type="hidden" name="method" value="delete">
+						<input type="hidden" name="id" value="<?php echo $c->id; ?>">
+						<button type="submit"> 
+							削除する
+						</button>
+					</form>
+    		</div>
         </div>
       <?php } ?>
     <?php } ?>

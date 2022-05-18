@@ -115,4 +115,18 @@ class RecordDetailModel
       $this->comments = [];
     }
   }
+
+  //削除のsqlを実行
+  function delete_do($id)
+  {    
+    $sql = "
+    DELETE
+    FROM
+      comment
+    WHERE
+      id = ".$id."
+    ";
+    $res = $this->db->query($sql);
+    return $res;
+  }
 }
