@@ -38,6 +38,15 @@
 				<div class="content">
 					<a href="../record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
 				</div>
+				<div class="button">
+					<form action="../recipe/recipe.php" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="job" value="delete">
+						<input type="hidden" name="recipe_id" value="<?php echo $this->recipe_id; ?>">
+						<button type="submit"> 
+							削除する
+						</button>
+					</form>
+    		</div>
 			</div>
 			<?php } ?> 
 		<?php } ?>
