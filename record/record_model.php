@@ -83,7 +83,7 @@ Class RecordModel
     return $results;
   }
 
-  function delete_d($id)
+  function delete_do($id)
   {    
     $sql = "
     DELETE
