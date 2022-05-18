@@ -3,15 +3,15 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 
-include_once '../index.php';
-include_once '../library.php';
+include_once '/app/index.php';
+include_once '/app/library.php';
 
 Class Record
 {
   //コンストラクタ　　
   function __construct() 
   {
-    include_once 'record/record_model.php';
+    include_once '/app/record_model.php';
     // Point 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
     if (isset($_SESSION['record'])) {
       $this->Model = unserialize($_SESSION['record']);
@@ -45,9 +45,9 @@ Class Record
     $error_message = $this->Model->check_value();
 
     if ($error_message) {
-      require_once '../library.php';
+      require_once '/app/library.php';
       $this->main_page = 'input';
-      include('./main.php');
+      include('/app/main.php');
     } else {
       $_SESSION['record'] = $this->Model->output;
       $this->main_page = 'check';
@@ -63,9 +63,9 @@ Class Record
 
     if (!$res) {
       $error_message = 'できていませんよ！何かがおかしいよ！';
-      require_once '../library.php';
+      require_once '/app/library.php';
       $this->main_page = 'input';
-      include('./main.php');
+      include('/app/main.php');
     } else {
 
       //セッションの削除
