@@ -33,10 +33,10 @@
 			<?php $r = unserialize($record); ?>
 			<div class="clip-box">
 				<div class="content">
-					<a href="./record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->created; ?></a>
+					<a href="record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->created; ?></a>
 				</div>
 				<div class="content">
-					<a href="./record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
+					<a href="record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
 				</div>
 			</div>
 			<?php } ?> 
