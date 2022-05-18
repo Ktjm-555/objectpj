@@ -81,7 +81,7 @@ class Record_detail
   function delete()
   {
     $this->res = $this->Model->delete_do($_REQUEST['id']);
-    $this->record_id = $_REQUEST['record_id'];
+    $this->record_id = $_REQUEST['record_d_id'];
     var_dump($this->record_id);
     exit();
     if ($this->res){
