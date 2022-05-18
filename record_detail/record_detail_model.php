@@ -111,6 +111,8 @@ class RecordDetailModel
     }
     if (isset($comments)) {
       $this->comments = $comments;
+      var_dump($comments);
+      exit();
     } else {
       $this->comments = [];
     }
