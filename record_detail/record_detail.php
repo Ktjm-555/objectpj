@@ -61,8 +61,6 @@ class Record_detail
   function regist()
   {
     $this->Model = unserialize($_SESSION['record_detail']);
-    var_dump($this->Model );
-    exit();
     $res = $this->Model->insert();
 
     if (!$res) {

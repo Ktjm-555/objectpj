@@ -152,8 +152,11 @@ button:focus {
 }
 
 .button_d {
-  margin: 10px, 20px, auto, auto;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-left: auto;
 }
+
 .message {
   text-align: center;
   font-family: 'M PLUS Rounded 1c', sans-serif;

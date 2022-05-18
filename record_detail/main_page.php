@@ -49,6 +49,8 @@ ini_set('error_reporting', E_ALL);
         </div>
         <div class="clip-box">
           <div class="content">
+          <?php var_dump($c); exit(); ?>
+
             <?php echo $c->created; ?>
             <?php echo $c->nickname; ?>
           </div>
