@@ -4,6 +4,7 @@ include_once '../library.php';
 
 class Record_detail
 {
+  var $record_id;
   //コンストラクタ
   function __construct()
   {
@@ -26,12 +27,15 @@ class Record_detail
   //recordのidを受け取る
   function main()
   {
-    if (isset($_REQUEST['id'])) {
-      $this->record_id = $_REQUEST['id'];
-    } else {
-      require_once '../library.php';
-      header('Location:../record/record.php');
-    }
+    if (is_null($this->record_id)){
+      if (isset($_REQUEST['id'])) {
+        $this->record_id = $_REQUEST['id'];
+      } else {
+        require_once '../library.php';
+        header('Location:../record/record.php');
+      }
+    } 
+
     //投稿(record)の表示
     $this->Model->set_record($this->record_id);
     $_SESSION['record_detail'] = serialize($this->Model);
