@@ -47,7 +47,7 @@ Class Record
     if ($error_message) {
       require_once '/app/library.php';
       $this->main_page = 'input';
-      include('/add/record/main.php');
+      include '/add/record/main.php';
     } else {
       $_SESSION['record'] = $this->Model->output;
       $this->main_page = 'check';
@@ -65,7 +65,7 @@ Class Record
       $error_message = 'できていませんよ！何かがおかしいよ！';
       require_once '/app/library.php';
       $this->main_page = 'input';
-      include('/app/main.php');
+      include '/app/main.php';
     } else {
 
       //セッションの削除

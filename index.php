@@ -18,7 +18,7 @@ ini_set('error_reporting', E_ALL);
   }
 
 // そのページを読み込む
-  include_once ($page.'/index.php');
+  include_once $page.'/index.php';
 
 // クラスを読み込む準備
   $func = ucfirst($page);
