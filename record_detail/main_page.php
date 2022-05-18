@@ -42,11 +42,11 @@ ini_set('error_reporting', E_ALL);
       <?php } ?> 
    
     <?php if (isset($this->Model->comments)){ ?>
+      <div class="message">
+          コメント表示
+      </div>
       <?php foreach ($this->Model->comments as $comment) { ?>
         <?php $c = unserialize($comment); ?>
-        <div class="message">
-          コメント表示
-        </div>
         <div class="clip-box">
           <div class="content">
             <?php echo $c->created; ?>
