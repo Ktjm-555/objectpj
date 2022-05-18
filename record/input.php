@@ -38,7 +38,7 @@ include_once '/app/record/record.php';
 					<a href="../record_detail/record_detail.php?id=<?php echo $r->id; ?>"><?php echo $r->output; ?></a>
 				</div>
 				<div class="button">
-					<form action="/recipe/recipe.php" method="post">
+					<form action="/record/record.php" method="post">
 						<input type="hidden" name="method" value="delete">
 						<input type="hidden" name="id" value="<?php echo $r->id; ?>">
 						<button type="submit"> 
