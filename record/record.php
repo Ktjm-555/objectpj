@@ -67,12 +67,23 @@ Class Record
       $this->main_page = 'input';
       include '/app/record/main.php';
     } else {
-
       //セッションの削除
       unset($_SESSION['record']);
       $this->main_page = 'thank';
       $this->show();
     }
+  }
+
+  //削除
+  function delete(){
+    $this->res = $this->Model->delete_do($_REQUEST['id']);
+    if ($this->res){
+      $_REQUEST['id'] = $this->Model->id;
+      $this->input();
+    } else {
+      $this->input();
+    }
+   
   }
 
   //画面遷移

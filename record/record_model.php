@@ -82,5 +82,18 @@ Class RecordModel
     $results = $this->db->query($sql);
     return $results;
   }
+
+  function delete_d($id)
+  {    
+    $sql = "
+    DELETE
+    FROM
+      record
+    WHERE
+      id = ".$id."
+    ";
+    $res = $this->db->query($sql);
+    return $res;
+  }
 }
 ?>
