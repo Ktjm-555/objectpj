@@ -40,8 +40,8 @@
         <div class="clip-box">
           <div class="contents">
             <div class="content">
-              <a><?php echo $c->created; ?></a><br>
-              <a><?php echo $c->nickname; ?></a>
+              <p class="come"><?php echo $c->created; ?></p><br>
+              <p class="come"><?php echo $c->nickname; ?></p>
             </div>
             <div class="content">
               <?php echo $c->come; ?>
