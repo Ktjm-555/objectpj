@@ -1,20 +1,22 @@
 <?php
 include_once '/app/sql.php';
 
-Class RecordModel
-{
-  //定義
+Class RecordModel {
+  /**
+  　　* 定義
+   */
   var $record;
 
-  //コンストラクタ
-  function __construct() 
-  {
+  /**
+  　　* コンストラクタ
+   */
+  function __construct() {
     $this->db = new Sql();
   }
-
-  //投稿一覧表示
-  function set_records()
-  {
+  /**
+  　　* 投稿一覧表示
+   */
+  function set_records() {
     $sql ="
     SELECT 
       *
@@ -39,24 +41,27 @@ Class RecordModel
     }
     $this->records = $records;
   }
- 
-  //まず初期化　　＠todo 今後valueを残す仕様の際に利用する可能あり。
-  function init()
-  {
+
+  /**
+  　　*  まず初期化　　＠todo 今後valueを残す仕様の際に利用する可能あり。
+   */
+  function init() {
     $this->record = NULL;
   }
 
-  //値を受け取る
-  function set_value($request)
-  {
+  /**
+  　　* 入力された値を受け取る
+   */
+  function set_value($request) {
     if (isset($_REQUEST['output'])){
       $this->output =  $request['output'];
     } 
   }
 
-  //入力していない場合の確認
-  function check_value()
-  {
+  /**
+  　　* 入力していない場合の確認
+   */
+  function check_value() {
     $error ='';
     if (!strlen($_REQUEST['output'])){
       $error = '何か入力してください';
@@ -64,9 +69,10 @@ Class RecordModel
     return $error;
   }
 
-  //insertのSQL 投稿を登録する
-  function insert()
-  {
+  /**
+  　　* insertのSQL 投稿を登録する
+   */
+  function insert() {
     require_once '/app/library.php';
     // Point 初期化は、値がない場合がある場合に初期値を設定する。
     $column = "'".h($this->output)."'";
@@ -83,8 +89,10 @@ Class RecordModel
     return $results;
   }
 
-  function delete_do($id)
-  {    
+  /**
+  　　* deleteのSQL 投稿を削除する
+   */
+  function delete_do($id) {    
     $sql = "
     DELETE
     FROM

@@ -1,14 +1,11 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
 include_once '/app/index.php';
 
-Class Record
-{
-  //コンストラクタ　　
-  function __construct() 
-  {
+Class Record {
+  /**
+  　　* コンストラクタ
+   */
+  function __construct() {
     include_once '/app/library.php';
     include_once '/app/record/record_model.php';
     // Point 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
@@ -21,30 +18,29 @@ Class Record
     session_start();
   }
 
-  function start() 
-  {
+  function start() {
     $this->input();
   }
 
-  //初期化
-  function input()
-  {
+  /**
+  　　* 初期化
+   */
+  function input() {
     $this->Model->init();
     $this->main_page = 'input';
     $this->show();
-
   }
 
-  //投稿確認
-  function check(){
-    //値を受け取る
+  /**
+　　　　　　* 投稿確認
+  　　*/
+  function check() {
     $this->Model->set_value($_REQUEST);
 ;
-    //入力していない場合の確認　エラーを表示する
+    //　Point　入力していない場合の確認　エラーを表示する
     $error_message = $this->Model->check_value();
 
     if ($error_message) {
-      require_once '/app/library.php';
       $this->main_page = 'input';
       include '/app/record/main.php';
     } else {
@@ -54,9 +50,10 @@ Class Record
     }
   }
 
-  //投稿の登録、投稿する
-  function regist()
-  {
+  /**
+　　　　　　* 投稿の登録、投稿する
+  　　*/
+  function regist() {
     $this->Model->output = $_SESSION['record'];
     $res = $this->Model->insert();
 
@@ -66,15 +63,17 @@ Class Record
       $this->main_page = 'input';
       include '/app/record/main.php';
     } else {
-      //セッションの削除
+      //　Point セッションの削除　＊更新とかしてもう一度データが入るのを防ぐ。
       unset($_SESSION['record']);
       $this->main_page = 'thank';
       $this->show();
     }
   }
 
-  //削除
-  function delete(){
+  /**
+　　　　　　* 削除
+　　　　　　*/
+  function delete() {
     $this->res = $this->Model->delete_do($_REQUEST['id']);
     if ($this->res){
       $this->input();
@@ -83,7 +82,9 @@ Class Record
     }
   }
 
-  //画面遷移
+  /**
+　　　　　　* 画面遷移
+　　　　　　*/
   function show() {
     switch ($this->main_page) {
       case 'input':
