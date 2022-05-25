@@ -28,8 +28,8 @@
 	<div class="wrapper_box2">
     <?php if (isset($this->Model->output) && isset($this->Model->created)) { ?>
       <div class="clip-box-a">
-        <p class="content"><?php echo $this->Model->created; ?></p>
-        <p class="content"><?php echo $this->Model->output; ?></p>
+        <p class="content"><?php echo h($this->Model->created); ?></p>
+        <p class="content"><?php echo h($this->Model->output); ?></p>
       </div>
     <?php } ?> 
    
@@ -40,10 +40,10 @@
         <div class="clip-box">
           <div class="contents">
             <div class="content">
-              <p class="come"><?php echo $c->created; ?></p>
-              <p class="come"><?php echo $c->nickname; ?></p>
+              <p class="come"><?php echo h($c->created); ?></p>
+              <p class="come"><?php echo h($c->nickname); ?></p>
             </div>
-            <p class="content"><?php echo $c->come; ?></p>
+            <p class="content"><?php echo h($c->come); ?></p>
           </div>
           <div class="button_d">
 					<form action="./record_detail.php" method="post">

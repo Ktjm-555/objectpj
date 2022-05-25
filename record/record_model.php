@@ -63,7 +63,7 @@ Class RecordModel {
    */
   function check_value() {
     $error ='';
-    if (!strlen($_REQUEST['output'])){
+    if (!strlen($_REQUEST['output'])) {
       $error = '何か入力してください';
     }
     return $error;

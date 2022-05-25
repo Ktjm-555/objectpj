@@ -1,6 +1,5 @@
 <?php
 include_once '../index.php';
-include_once '../library.php';
 
 class Record_detail {
   /**
@@ -12,6 +11,7 @@ class Record_detail {
   　　* コンストラクタ
    */
   function __construct() {
+    include_once '../library.php';
     include_once './record_detail_model.php';
 
     if (isset( $_SESSION['record_detail'])) {

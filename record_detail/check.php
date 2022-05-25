@@ -6,11 +6,14 @@
         <input type="hidden" name="record_d_id" value="<?= $this->Model->record_d_id ?>">
         <div class="content">       
           ニックネーム:
-          <?php echo $this->Model->nickname; 	?>
+          <?php 
+          include_once '/app/library.php';
+          echo h($this->Model->nickname);
+          ?>
         </div>
         <div class="content">       
           コメント:
-          <?php echo $this->Model->come; ?>
+          <?php echo h($this->Model->come); ?>
         </div>
     </div>
     <div class="button_n">
@@ -23,9 +26,7 @@
         <form action="./record_detail.php" method="post" >
           <input type="hidden" name="method" value="start">
           <input type="hidden" name="record_d_id" value="<?= $this->Model->record_d_id ?>">
-            <button type="submit"> 
-              TOPページに戻る
-            </button>
+            <button type="submit">TOPページに戻る</button>
         </form>
     </div>
     </form>

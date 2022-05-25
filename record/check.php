@@ -5,8 +5,8 @@
         <input type="hidden" name="method" value="regist"> 
         <div class="content">       
           <?php 
-            include_once '/app/library.php';
-            echo h($this->Model->output);
+          include_once '/app/library.php';
+          echo h($this->Model->output);
           ?>
         </div>
     </div>
