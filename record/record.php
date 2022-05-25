@@ -8,7 +8,7 @@ Class Record {
   function __construct() {
     include_once '/app/library.php';
     include_once '/app/record/record_model.php';
-    // Point 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
+    //　毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
     if (isset($_SESSION['record'])) {
       $this->Model = unserialize($_SESSION['record']);
     } else {
@@ -37,7 +37,7 @@ Class Record {
   function check() {
     $this->Model->set_value($_REQUEST);
 ;
-    //　Point　入力していない場合の確認　エラーを表示する
+    //　入力していない場合の確認　エラーを表示する
     $error_message = $this->Model->check_value();
 
     if ($error_message) {
@@ -62,7 +62,7 @@ Class Record {
       $this->main_page = 'input';
       include '/app/record/main.php';
     } else {
-      //　Point セッションの削除　＊更新とかしてもう一度データが入るのを防ぐ。
+      //　セッションの削除　＊更新とかしてもう一度データが入るのを防ぐ。
       unset($_SESSION['record']);
       $this->main_page = 'thank';
       $this->show();

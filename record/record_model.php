@@ -25,18 +25,18 @@ Class RecordModel {
     ORDER BY 
       id DESC 
     ";
-    // Point 実行したものをresultsに入れている
+    //　実行したものをresultsに入れている
     $results = $this->db->query($sql);
-    //　Point テーブルのレコードを1行取得し、$rowに入れることを繰り返す＊連想配列となる
+    //　テーブルのレコードを1行取得し、$rowに入れることを繰り返す＊連想配列となる
     while ($row = mysqli_fetch_assoc($results)) {
-      // Point 配列を入れる器を作る　
+      //　配列を入れる器を作る　
       $record = new stdClass();  
-      //　Point name（Ex.output） value(Ex.input で入力した値)に当てはめる
-      //　Point name（Ex.created）  value(Ex.inputで入力したときの時間)に当てはめる
+      // name（Ex.output） value(Ex.input で入力した値)に当てはめる
+      //　name（Ex.created）  value(Ex.inputで入力したときの時間)に当てはめる
       foreach($row as $name => $value) {
         $record->$name = $value;
       }
-      //　Point　$recordは　outputとcreatedからできた配列になる
+      //　$recordは　outputとcreatedからできた配列になる
       $records[] = serialize($record);
     }
     $this->records = $records;
@@ -74,7 +74,7 @@ Class RecordModel {
    */
   function insert() {
     require_once '/app/library.php';
-    // Point 初期化は、値がない場合がある場合に初期値を設定する。
+    //　初期化は、値がない場合がある場合に初期値を設定する。
     $column = "'".h($this->output)."'";
     
     $sql = "

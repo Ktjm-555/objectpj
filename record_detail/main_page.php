@@ -40,12 +40,10 @@
         <div class="clip-box">
           <div class="contents">
             <div class="content">
-              <p class="come"><?php echo $c->created; ?></p><br>
+              <p class="come"><?php echo $c->created; ?></p>
               <p class="come"><?php echo $c->nickname; ?></p>
             </div>
-            <div class="content">
-              <?php echo $c->come; ?>
-            </div>
+            <p class="content"><?php echo $c->come; ?></p>
           </div>
           <div class="button_d">
 					<form action="./record_detail.php" method="post">

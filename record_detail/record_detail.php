@@ -2,12 +2,16 @@
 include_once '../index.php';
 include_once '../library.php';
 
-class Record_detail
-{
+class Record_detail {
+  /**
+  　　* 定義
+   */
   var $record_id;
-  //コンストラクタ
-  function __construct()
-  {
+
+  /**
+  　　* コンストラクタ
+   */
+  function __construct() {
     include_once './record_detail_model.php';
 
     if (isset( $_SESSION['record_detail'])) {
@@ -19,15 +23,16 @@ class Record_detail
     session_start();
   }
   
-  function start()
-  {
+  function start() {
     $this->main();
   }
 
-  //recordのidを受け取る
-  function main()
-  {
-    if (is_null($this->record_id)){
+  /**
+  　　* recordのidを受け取る
+   */
+  function main() {
+    //　「record_id」が「null(何もない)」ではないかを確認。 
+    if (is_null($this->record_id)) {
       if (isset($_REQUEST['id'])) {
         $this->record_id = $_REQUEST['id'];
       } else {
@@ -36,16 +41,19 @@ class Record_detail
       }
     } 
 
-    //投稿(record)の表示
+    //　投稿(record)の表示
     $this->Model->set_record($this->record_id);
     $_SESSION['record_detail'] = serialize($this->Model);
+    
     //ページ表示
     $this->main_page = 'main_page';
     $this->show();
   }
 
-  //コメント確認
-  function check(){
+  /**
+  　　* コメント確認
+   */
+  function check() {
     //内容を受け取る
     $this->Model->set_value($_REQUEST);
     //入力していない場合の確認　エラーを表示する
@@ -53,7 +61,7 @@ class Record_detail
     if ($error_message) {
       require_once '../library.php';
       $this->main_page = 'main_page';
-      include('./main.php');
+      include './main.php';
     } else {
       $_SESSION['record_detail'] = serialize($this->Model);
       $this->main_page = 'check';
@@ -61,9 +69,10 @@ class Record_detail
     }
   }
 
-  //コメントの登録、投稿する
-  function regist()
-  {
+  /**
+  　　* コメントの登録、投稿する
+   */
+  function regist() {
     $this->Model = unserialize($_SESSION['record_detail']);
     $res = $this->Model->insert();
 
@@ -73,30 +82,33 @@ class Record_detail
       exit();
       require_once '../library.php';
       $this->main_page = 'main_page';
-      include('./main.php');
+      include './main.php';
     } else {
       $_REQUEST['id'] = $this->Model->record_d_id;
-      //　Point　完了ページなしで詳細表示画面に戻る
+      //　完了ページなしで詳細表示画面に戻る
       $this->main();
     }
   }
 
-  //削除
-  function delete()
-  {
+  /**
+  　　* 削除
+   */
+  function delete() {
     $this->res = $this->Model->delete_do($_REQUEST['id']);
     $this->record_id = $_REQUEST['record_d_id'];
     
-    if ($this->res){
+    if ($this->res) {
       $this->main();
     } else {
+      $error_message = 'できていませんよ！何かがおかしいよ！';
       $this->main();
     }
   }
 
-  //画面遷移
-  function show()
-  {
+  /**
+  　　* 画面遷移
+  　　*/
+  function show() {
     require_once '../library.php';
     switch ($this->main_page) {
       case 'main_page':

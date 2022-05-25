@@ -1,9 +1,14 @@
 <?php
 Class Sql
 {
+	/**
+　　  * 定義
+   */
 	var $db;
 		
-	// 一番最初に読む　コンストラクタ
+	/**
+  　　* コンストラクタ
+   */
 	function __construct() 
 	{
 		$db = mysqli_connect('us-cdbr-east-05.cleardb.net', 'b40e7da217ecbc', '43749863', 'heroku_963ac50667f4cd7');
@@ -14,14 +19,15 @@ Class Sql
 			$this->db = $db;
 		}
 	}
-
-	//配列を返す *select等 
-  function mysqli_query($sql)
-  {
-    // Point 決まったメソッド　mysqli_query
-    $results = mysqli_query($this->db, $sql);
-    return $results;
-  }
+	/**
+  　　* 配列を返す *select等 
+   */
+  // function mysqli_query($sql)
+  // {
+  //   //　決まったメソッド　mysqli_query
+  //   $results = mysqli_query($this->db, $sql);
+  //   return $results;
+  // }
 
 	function query($sql) 
 	{
