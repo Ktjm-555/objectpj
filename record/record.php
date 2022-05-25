@@ -3,13 +3,13 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 include_once '/app/index.php';
-include_once '/app/library.php';
 
 Class Record
 {
   //コンストラクタ　　
   function __construct() 
   {
+    include_once '/app/library.php';
     include_once '/app/record/record_model.php';
     // Point 毎回ここは通るところ、$_SESSIONに値があるかないかでクラスを呼び出す
     if (isset($_SESSION['record'])) {
