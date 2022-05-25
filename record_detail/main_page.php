@@ -1,7 +1,3 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
-?>
 <body>
   <div class="wrapper_come_box">
     <div class="message">
@@ -30,21 +26,19 @@ ini_set('error_reporting', E_ALL);
     </div>
   </div>
 	<div class="wrapper_box2">
-      <?php if (isset($this->Model->output) && isset($this->Model->created)) { ?>
-        <div class="clip-box-a">
-          <div class="content">
-            <?php echo $this->Model->created; ?>
-          </div>
-          <div class="content">
-            <?php echo $this->Model->output; ?>
-          </div>
+    <?php if (isset($this->Model->output) && isset($this->Model->created)) { ?>
+      <div class="clip-box-a">
+        <div class="content">
+          <?php echo $this->Model->created; ?>
         </div>
-      <?php } ?> 
+        <div class="content">
+          <?php echo $this->Model->output; ?>
+        </div>
+      </div>
+    <?php } ?> 
    
     <?php if (isset($this->Model->comments)){ ?>
-      <div class="message">
-          コメント表示
-      </div>
+      <div class="message">コメント表示</div>
       <?php foreach ($this->Model->comments as $comment) { ?>
         <?php $c = unserialize($comment); ?>
         <div class="clip-box">
@@ -62,9 +56,7 @@ ini_set('error_reporting', E_ALL);
             <input type="hidden" name="method" value="delete">
             <input type="hidden" name="record_d_id" value="<?php echo $c->record_d_id; ?>">
 						<input type="hidden" name="id" value="<?php echo $c->id; ?>">
-						<button type="submit"> 
-							削除する
-						</button>
+						<button type="submit">削除する</button>
 					</form>
     		</div>
         </div>
@@ -73,9 +65,7 @@ ini_set('error_reporting', E_ALL);
     <div class="button_t">
       <form action="../record/record.php" method="post" >
         <input type="hidden" name="method" value="start">
-          <button type="submit"> 
-          TOPページに戻る
-          </button>
+        <button type="submit">TOPページに戻る</button>
       </form>
     </div>
   </div>
