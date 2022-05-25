@@ -1,6 +1,5 @@
 <?php
-Class Sql
-{
+Class Sql {
 	/**
 　　  * 定義
    */
@@ -9,8 +8,7 @@ Class Sql
 	/**
   　　* コンストラクタ
    */
-	function __construct() 
-	{
+	function __construct() {
 		$db = mysqli_connect('us-cdbr-east-05.cleardb.net', 'b40e7da217ecbc', '43749863', 'heroku_963ac50667f4cd7');
 		// $db = new mysqli('localhost:8889', 'root', 'root', 'recipenpj'); 
 		if (!$db) {
@@ -19,25 +17,20 @@ Class Sql
 			$this->db = $db;
 		}
 	}
-	/**
-  　　* 配列を返す *select等 
-   */
-  // function mysqli_query($sql)
-  // {
-  //   //　決まったメソッド　mysqli_query
-  //   $results = mysqli_query($this->db, $sql);
-  //   return $results;
-  // }
 
-	function query($sql) 
-	{
+	/**
+  　　* SQL実行
+   */
+	function query($sql) {
 		$result = mysqli_query($this->db, $sql);
 		return $result;
 	} 
 
-	//一つのテーブルを出す
-	function mysqli_query_one($sql)
-  {
+	/**
+  　　* SQL実行 レコードを一個だけ取り出すとき
+   */	
+	// @riho ここわからない　上のと使い分け？
+	function mysqli_query_one($sql) {
    $result = mysqli_query($this->db, $sql);
 		if ($result) {
       $row = mysqli_fetch_assoc($result);

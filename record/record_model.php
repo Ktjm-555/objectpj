@@ -53,7 +53,7 @@ Class RecordModel {
   　　* 入力された値を受け取る
    */
   function set_value($request) {
-    if (isset($_REQUEST['output'])){
+    if (isset($_REQUEST['output'])) {
       $this->output =  $request['output'];
     } 
   }

@@ -36,7 +36,6 @@ class Record_detail {
       if (isset($_REQUEST['id'])) {
         $this->record_id = $_REQUEST['id'];
       } else {
-        require_once '../library.php';
         header('Location:../record/record.php');
       }
     } 
@@ -59,7 +58,6 @@ class Record_detail {
     //入力していない場合の確認　エラーを表示する
     $error_message = $this->Model->check_value();
     if ($error_message) {
-      require_once '../library.php';
       $this->main_page = 'main_page';
       include './main.php';
     } else {
@@ -78,9 +76,6 @@ class Record_detail {
 
     if (!$res) {
       $error_message = 'できていませんよ！何かがおかしいよ！';
-      var_dump($error_message);
-      exit();
-      require_once '../library.php';
       $this->main_page = 'main_page';
       include './main.php';
     } else {
@@ -109,7 +104,6 @@ class Record_detail {
   　　* 画面遷移
   　　*/
   function show() {
-    require_once '../library.php';
     switch ($this->main_page) {
       case 'main_page':
         $error_messages = array();
