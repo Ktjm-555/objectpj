@@ -28,12 +28,8 @@
 	<div class="wrapper_box2">
     <?php if (isset($this->Model->output) && isset($this->Model->created)) { ?>
       <div class="clip-box-a">
-        <div class="content">
-          <?php echo $this->Model->created; ?>
-        </div>
-        <div class="content">
-          <?php echo $this->Model->output; ?>
-        </div>
+        <p class="content"><?php echo $this->Model->created; ?></p>
+        <p class="content"><?php echo $this->Model->output; ?></p>
       </div>
     <?php } ?> 
    
