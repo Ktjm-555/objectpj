@@ -28,6 +28,7 @@ Class Sql
 		$result = mysqli_query($this->db, $sql);
 		return $result;
 	} 
+
 	//一つのテーブルを出す
 	function mysqli_query_one($sql)
   {
