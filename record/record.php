@@ -59,7 +59,6 @@ Class Record {
 
     if (!$res) {
       $error_message = 'できていませんよ！何かがおかしいよ！';
-      require_once '/app/library.php';
       $this->main_page = 'input';
       include '/app/record/main.php';
     } else {
@@ -78,6 +77,7 @@ Class Record {
     if ($this->res){
       $this->input();
     } else {
+      $error_message = 'できていませんよ！何かがおかしいよ！';
       $this->input();
     }
   }
@@ -91,7 +91,7 @@ Class Record {
         $error_message = '';
         $this->Model->set_records();
         $_SESSION['record'] = $this->Model->records;
-        break;
+      break;
     }
     include 'main.php';
   }

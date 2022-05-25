@@ -85,7 +85,7 @@ Class RecordModel {
         ($column)
     ";
     $this->db = new Sql();
-    $results = $this->db->query($sql);
+    $results  = $this->db->query($sql);
     return $results;
   }
 
