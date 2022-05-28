@@ -8,7 +8,7 @@ recipenpj appを作成後、自身のコードが分かりづらく、読みづ�
 * https://objectpj.herokuapp.com/
 
 # コードの一部
-<img width="1395" alt="スクリーンショット 2022-05-27 22 31 05" src="https://user-images.githubusercontent.com/102650893/170709340-dd5398ee-4a5c-4304-9f83-73593b797159.png">
+<img width="1390" alt="コード1" src="https://user-images.githubusercontent.com/102650893/170830847-1847416c-4770-43c9-87f3-ba8a595204be.png">
 
 # アプリを作った理由
 recipenpj appを作成した際、  
